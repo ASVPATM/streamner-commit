@@ -1,0 +1,8 @@
+macOS: 26.6.2
+Architecture: arm64
+Python: 3.12.14
+Git commit: unavailable (no commit)
+PyTorch: 2.13.0
+GLiNER: 0.2.28
+Transformers: 5.12.1
+PyTorch MPS available: True

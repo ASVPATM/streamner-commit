@@ -1,0 +1,996 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "file": "streamner-phase3-raw-traces.json",
+      "run_id": "fixture-raw-8cd1cd712c924201a15a08169f1270d5",
+      "words_per_chunk": 1
+    },
+    {
+      "file": "streamner-phase4-raw-traces-w2.json",
+      "run_id": "fixture-raw-ec17f76bc8a841ff986127edb06e59d5",
+      "words_per_chunk": 2
+    }
+  ],
+  "summary": {
+    "trace_count": 20,
+    "raw_revisions": {
+      "span_update_count": 4947,
+      "rescore_update_count": 3185,
+      "rescore_update_rate": 0.6438245401253285,
+      "observed_boundary_count": 1762,
+      "rescored_boundary_count": 1183,
+      "rescored_boundary_rate": 0.6713961407491487,
+      "rescores_without_previous_probability": 0,
+      "probability_movement": {
+        "count": 3185,
+        "mean": 0.003914063186448098,
+        "median": 5.8663903022377974e-15,
+        "maximum": 0.9752236927609287
+      }
+    },
+    "decoded_snapshot_churn": {
+      "transition_count": 124,
+      "total_symmetric_difference": 42,
+      "mean_symmetric_difference": 0.3387096774193548,
+      "micro_normalized_churn": 0.4883720930232558,
+      "mean_normalized_churn": 0.2620967741935484
+    },
+    "boundary_extensions": {
+      "count": 8,
+      "cases": [
+        {
+          "example_id": "phone_number",
+          "from_step": 6,
+          "to_step": 8,
+          "start_char": 32,
+          "from_end_char": 34,
+          "to_end_char": 49,
+          "label": "phone number",
+          "from_text": "+1",
+          "to_text": "+1 (202) 555-0147"
+        },
+        {
+          "example_id": "street_address",
+          "from_step": 7,
+          "to_step": 8,
+          "start_char": 26,
+          "from_end_char": 39,
+          "to_end_char": 44,
+          "label": "street address",
+          "from_text": "404 Imaginary",
+          "to_text": "404 Imaginary Lane"
+        },
+        {
+          "example_id": "street_address",
+          "from_step": 8,
+          "to_step": 9,
+          "start_char": 26,
+          "from_end_char": 44,
+          "to_end_char": 54,
+          "label": "street address",
+          "from_text": "404 Imaginary Lane",
+          "to_text": "404 Imaginary Lane, Faketown"
+        },
+        {
+          "example_id": "credit_card_like",
+          "from_step": 6,
+          "to_step": 9,
+          "start_char": 26,
+          "from_end_char": 30,
+          "to_end_char": 45,
+          "label": "credit card number",
+          "from_text": "1234",
+          "to_text": "1234 5678 9012 3456"
+        },
+        {
+          "example_id": "entity_at_end",
+          "from_step": 7,
+          "to_step": 9,
+          "start_char": 39,
+          "from_end_char": 41,
+          "to_end_char": 56,
+          "label": "phone number",
+          "from_text": "+1",
+          "to_text": "+1 (303) 555-0188"
+        },
+        {
+          "example_id": "phone_number",
+          "from_step": 3,
+          "to_step": 4,
+          "start_char": 32,
+          "from_end_char": 34,
+          "to_end_char": 49,
+          "label": "phone number",
+          "from_text": "+1",
+          "to_text": "+1 (202) 555-0147"
+        },
+        {
+          "example_id": "street_address",
+          "from_step": 4,
+          "to_step": 5,
+          "start_char": 26,
+          "from_end_char": 44,
+          "to_end_char": 54,
+          "label": "street address",
+          "from_text": "404 Imaginary Lane",
+          "to_text": "404 Imaginary Lane, Faketown"
+        },
+        {
+          "example_id": "credit_card_like",
+          "from_step": 3,
+          "to_step": 5,
+          "start_char": 26,
+          "from_end_char": 30,
+          "to_end_char": 45,
+          "label": "credit card number",
+          "from_text": "1234",
+          "to_text": "1234 5678 9012 3456"
+        }
+      ]
+    },
+    "revision_horizon": {
+      "mean": 5.666103127641589,
+      "median": 5.0,
+      "maximum": 12.0,
+      "boundary_count": 1183
+    }
+  },
+  "traces": [
+    {
+      "example_id": "multi_word_person",
+      "raw_revisions": {
+        "span_update_count": 129,
+        "rescore_update_count": 84,
+        "rescore_update_rate": 0.6511627906976745,
+        "observed_boundary_count": 45,
+        "rescored_boundary_count": 28,
+        "rescored_boundary_rate": 0.6222222222222222,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 84,
+          "mean": 0.0043924515200902915,
+          "median": 4.518922265341219e-11,
+          "maximum": 0.322156016590329
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 7,
+        "total_symmetric_difference": 1,
+        "mean_symmetric_difference": 0.14285714285714285,
+        "micro_normalized_churn": 0.25,
+        "mean_normalized_churn": 0.14285714285714285
+      },
+      "boundary_extensions": {
+        "count": 0,
+        "cases": []
+      },
+      "revision_horizon": {
+        "mean": 4.0,
+        "median": 4.0,
+        "maximum": 8.0,
+        "boundary_count": 28
+      },
+      "source_file": "streamner-phase3-raw-traces.json",
+      "run_id": "fixture-raw-8cd1cd712c924201a15a08169f1270d5",
+      "words_per_chunk": 1
+    },
+    {
+      "example_id": "email_address",
+      "raw_revisions": {
+        "span_update_count": 214,
+        "rescore_update_count": 112,
+        "rescore_update_rate": 0.5233644859813084,
+        "observed_boundary_count": 102,
+        "rescored_boundary_count": 78,
+        "rescored_boundary_rate": 0.7647058823529411,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 112,
+          "mean": 0.004097453043218424,
+          "median": 5.2614147394086246e-83,
+          "maximum": 0.18920497971733077
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 6,
+        "total_symmetric_difference": 1,
+        "mean_symmetric_difference": 0.16666666666666666,
+        "micro_normalized_churn": 0.5,
+        "mean_normalized_churn": 0.16666666666666666
+      },
+      "boundary_extensions": {
+        "count": 0,
+        "cases": []
+      },
+      "revision_horizon": {
+        "mean": 5.641025641025641,
+        "median": 5.0,
+        "maximum": 12.0,
+        "boundary_count": 78
+      },
+      "source_file": "streamner-phase3-raw-traces.json",
+      "run_id": "fixture-raw-8cd1cd712c924201a15a08169f1270d5",
+      "words_per_chunk": 1
+    },
+    {
+      "example_id": "phone_number",
+      "raw_revisions": {
+        "span_update_count": 427,
+        "rescore_update_count": 313,
+        "rescore_update_rate": 0.7330210772833724,
+        "observed_boundary_count": 114,
+        "rescored_boundary_count": 90,
+        "rescored_boundary_rate": 0.7894736842105263,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 313,
+          "mean": 0.0030231503365310422,
+          "median": 1.2833068792630721e-24,
+          "maximum": 0.5127244381077168
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 9,
+        "total_symmetric_difference": 3,
+        "mean_symmetric_difference": 0.3333333333333333,
+        "micro_normalized_churn": 0.5,
+        "mean_normalized_churn": 0.2222222222222222
+      },
+      "boundary_extensions": {
+        "count": 1,
+        "cases": [
+          {
+            "example_id": "phone_number",
+            "from_step": 6,
+            "to_step": 8,
+            "start_char": 32,
+            "from_end_char": 34,
+            "to_end_char": 49,
+            "label": "phone number",
+            "from_text": "+1",
+            "to_text": "+1 (202) 555-0147"
+          }
+        ]
+      },
+      "revision_horizon": {
+        "mean": 5.977777777777778,
+        "median": 5.5,
+        "maximum": 12.0,
+        "boundary_count": 90
+      },
+      "source_file": "streamner-phase3-raw-traces.json",
+      "run_id": "fixture-raw-8cd1cd712c924201a15a08169f1270d5",
+      "words_per_chunk": 1
+    },
+    {
+      "example_id": "street_address",
+      "raw_revisions": {
+        "span_update_count": 374,
+        "rescore_update_count": 272,
+        "rescore_update_rate": 0.7272727272727273,
+        "observed_boundary_count": 102,
+        "rescored_boundary_count": 78,
+        "rescored_boundary_rate": 0.7647058823529411,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 272,
+          "mean": 0.010214370253156434,
+          "median": 1.5289308157738819e-13,
+          "maximum": 0.9752236927609287
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 10,
+        "total_symmetric_difference": 6,
+        "mean_symmetric_difference": 0.6,
+        "micro_normalized_churn": 0.6666666666666666,
+        "mean_normalized_churn": 0.35
+      },
+      "boundary_extensions": {
+        "count": 2,
+        "cases": [
+          {
+            "example_id": "street_address",
+            "from_step": 7,
+            "to_step": 8,
+            "start_char": 26,
+            "from_end_char": 39,
+            "to_end_char": 44,
+            "label": "street address",
+            "from_text": "404 Imaginary",
+            "to_text": "404 Imaginary Lane"
+          },
+          {
+            "example_id": "street_address",
+            "from_step": 8,
+            "to_step": 9,
+            "start_char": 26,
+            "from_end_char": 44,
+            "to_end_char": 54,
+            "label": "street address",
+            "from_text": "404 Imaginary Lane",
+            "to_text": "404 Imaginary Lane, Faketown"
+          }
+        ]
+      },
+      "revision_horizon": {
+        "mean": 5.641025641025641,
+        "median": 5.0,
+        "maximum": 12.0,
+        "boundary_count": 78
+      },
+      "source_file": "streamner-phase3-raw-traces.json",
+      "run_id": "fixture-raw-8cd1cd712c924201a15a08169f1270d5",
+      "words_per_chunk": 1
+    },
+    {
+      "example_id": "credit_card_like",
+      "raw_revisions": {
+        "span_update_count": 565,
+        "rescore_update_count": 451,
+        "rescore_update_rate": 0.7982300884955752,
+        "observed_boundary_count": 114,
+        "rescored_boundary_count": 90,
+        "rescored_boundary_rate": 0.7894736842105263,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 451,
+          "mean": 0.0021051919195744042,
+          "median": 2.884684976474935e-14,
+          "maximum": 0.3037951540591779
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 13,
+        "total_symmetric_difference": 3,
+        "mean_symmetric_difference": 0.23076923076923078,
+        "micro_normalized_churn": 0.3,
+        "mean_normalized_churn": 0.15384615384615385
+      },
+      "boundary_extensions": {
+        "count": 1,
+        "cases": [
+          {
+            "example_id": "credit_card_like",
+            "from_step": 6,
+            "to_step": 9,
+            "start_char": 26,
+            "from_end_char": 30,
+            "to_end_char": 45,
+            "label": "credit card number",
+            "from_text": "1234",
+            "to_text": "1234 5678 9012 3456"
+          }
+        ]
+      },
+      "revision_horizon": {
+        "mean": 5.977777777777778,
+        "median": 5.5,
+        "maximum": 12.0,
+        "boundary_count": 90
+      },
+      "source_file": "streamner-phase3-raw-traces.json",
+      "run_id": "fixture-raw-8cd1cd712c924201a15a08169f1270d5",
+      "words_per_chunk": 1
+    },
+    {
+      "example_id": "passport_like",
+      "raw_revisions": {
+        "span_update_count": 175,
+        "rescore_update_count": 120,
+        "rescore_update_rate": 0.6857142857142857,
+        "observed_boundary_count": 55,
+        "rescored_boundary_count": 36,
+        "rescored_boundary_rate": 0.6545454545454545,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 120,
+          "mean": 0.0006988949397254673,
+          "median": 2.3582917544154335e-05,
+          "maximum": 0.027224931099727567
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 8,
+        "total_symmetric_difference": 1,
+        "mean_symmetric_difference": 0.125,
+        "micro_normalized_churn": 0.25,
+        "mean_normalized_churn": 0.125
+      },
+      "boundary_extensions": {
+        "count": 0,
+        "cases": []
+      },
+      "revision_horizon": {
+        "mean": 4.333333333333333,
+        "median": 4.0,
+        "maximum": 9.0,
+        "boundary_count": 36
+      },
+      "source_file": "streamner-phase3-raw-traces.json",
+      "run_id": "fixture-raw-8cd1cd712c924201a15a08169f1270d5",
+      "words_per_chunk": 1
+    },
+    {
+      "example_id": "two_entities",
+      "raw_revisions": {
+        "span_update_count": 157,
+        "rescore_update_count": 55,
+        "rescore_update_rate": 0.3503184713375796,
+        "observed_boundary_count": 102,
+        "rescored_boundary_count": 21,
+        "rescored_boundary_rate": 0.20588235294117646,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 55,
+          "mean": 0.005792703036948572,
+          "median": 1.668908306271713e-10,
+          "maximum": 0.30118752417292693
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 6,
+        "total_symmetric_difference": 2,
+        "mean_symmetric_difference": 0.3333333333333333,
+        "micro_normalized_churn": 0.2857142857142857,
+        "mean_normalized_churn": 0.25
+      },
+      "boundary_extensions": {
+        "count": 0,
+        "cases": []
+      },
+      "revision_horizon": {
+        "mean": 9.285714285714286,
+        "median": 9.0,
+        "maximum": 12.0,
+        "boundary_count": 21
+      },
+      "source_file": "streamner-phase3-raw-traces.json",
+      "run_id": "fixture-raw-8cd1cd712c924201a15a08169f1270d5",
+      "words_per_chunk": 1
+    },
+    {
+      "example_id": "negative_no_pii",
+      "raw_revisions": {
+        "span_update_count": 175,
+        "rescore_update_count": 120,
+        "rescore_update_rate": 0.6857142857142857,
+        "observed_boundary_count": 55,
+        "rescored_boundary_count": 36,
+        "rescored_boundary_rate": 0.6545454545454545,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 120,
+          "mean": 0.004018172119324386,
+          "median": 2.6963757816204794e-06,
+          "maximum": 0.249833307336546
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 8,
+        "total_symmetric_difference": 0,
+        "mean_symmetric_difference": 0.0,
+        "micro_normalized_churn": 0.0,
+        "mean_normalized_churn": 0.0
+      },
+      "boundary_extensions": {
+        "count": 0,
+        "cases": []
+      },
+      "revision_horizon": {
+        "mean": 4.333333333333333,
+        "median": 4.0,
+        "maximum": 9.0,
+        "boundary_count": 36
+      },
+      "source_file": "streamner-phase3-raw-traces.json",
+      "run_id": "fixture-raw-8cd1cd712c924201a15a08169f1270d5",
+      "words_per_chunk": 1
+    },
+    {
+      "example_id": "entity_at_beginning",
+      "raw_revisions": {
+        "span_update_count": 545,
+        "rescore_update_count": 431,
+        "rescore_update_rate": 0.7908256880733945,
+        "observed_boundary_count": 114,
+        "rescored_boundary_count": 90,
+        "rescored_boundary_rate": 0.7894736842105263,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 431,
+          "mean": 0.000882556121593732,
+          "median": 1.3565856070088765e-35,
+          "maximum": 0.09406843422900302
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 9,
+        "total_symmetric_difference": 4,
+        "mean_symmetric_difference": 0.4444444444444444,
+        "micro_normalized_churn": 0.4444444444444444,
+        "mean_normalized_churn": 0.4444444444444444
+      },
+      "boundary_extensions": {
+        "count": 0,
+        "cases": []
+      },
+      "revision_horizon": {
+        "mean": 5.977777777777778,
+        "median": 5.5,
+        "maximum": 12.0,
+        "boundary_count": 90
+      },
+      "source_file": "streamner-phase3-raw-traces.json",
+      "run_id": "fixture-raw-8cd1cd712c924201a15a08169f1270d5",
+      "words_per_chunk": 1
+    },
+    {
+      "example_id": "entity_at_end",
+      "raw_revisions": {
+        "span_update_count": 236,
+        "rescore_update_count": 158,
+        "rescore_update_rate": 0.6694915254237288,
+        "observed_boundary_count": 78,
+        "rescored_boundary_count": 66,
+        "rescored_boundary_rate": 0.8461538461538461,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 158,
+          "mean": 0.0057491884601891625,
+          "median": 3.371065950730991e-20,
+          "maximum": 0.4799212577738569
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 8,
+        "total_symmetric_difference": 3,
+        "mean_symmetric_difference": 0.375,
+        "micro_normalized_churn": 1.0,
+        "mean_normalized_churn": 0.375
+      },
+      "boundary_extensions": {
+        "count": 1,
+        "cases": [
+          {
+            "example_id": "entity_at_end",
+            "from_step": 7,
+            "to_step": 9,
+            "start_char": 39,
+            "from_end_char": 41,
+            "to_end_char": 56,
+            "label": "phone number",
+            "from_text": "+1",
+            "to_text": "+1 (303) 555-0188"
+          }
+        ]
+      },
+      "revision_horizon": {
+        "mean": 4.333333333333333,
+        "median": 4.0,
+        "maximum": 11.0,
+        "boundary_count": 66
+      },
+      "source_file": "streamner-phase3-raw-traces.json",
+      "run_id": "fixture-raw-8cd1cd712c924201a15a08169f1270d5",
+      "words_per_chunk": 1
+    },
+    {
+      "example_id": "multi_word_person",
+      "raw_revisions": {
+        "span_update_count": 79,
+        "rescore_update_count": 34,
+        "rescore_update_rate": 0.43037974683544306,
+        "observed_boundary_count": 45,
+        "rescored_boundary_count": 21,
+        "rescored_boundary_rate": 0.4666666666666667,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 34,
+          "mean": 0.010815476216203107,
+          "median": 5.18848571577844e-09,
+          "maximum": 0.32216218571826544
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 3,
+        "total_symmetric_difference": 1,
+        "mean_symmetric_difference": 0.3333333333333333,
+        "micro_normalized_churn": 0.5,
+        "mean_normalized_churn": 0.3333333333333333
+      },
+      "boundary_extensions": {
+        "count": 0,
+        "cases": []
+      },
+      "revision_horizon": {
+        "mean": 4.666666666666667,
+        "median": 4.0,
+        "maximum": 8.0,
+        "boundary_count": 21
+      },
+      "source_file": "streamner-phase4-raw-traces-w2.json",
+      "run_id": "fixture-raw-ec17f76bc8a841ff986127edb06e59d5",
+      "words_per_chunk": 2
+    },
+    {
+      "example_id": "email_address",
+      "raw_revisions": {
+        "span_update_count": 192,
+        "rescore_update_count": 90,
+        "rescore_update_rate": 0.46875,
+        "observed_boundary_count": 102,
+        "rescored_boundary_count": 78,
+        "rescored_boundary_rate": 0.7647058823529411,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 90,
+          "mean": 0.0032404892108530616,
+          "median": 2.7600872456195534e-89,
+          "maximum": 0.23254538576179845
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 3,
+        "total_symmetric_difference": 1,
+        "mean_symmetric_difference": 0.3333333333333333,
+        "micro_normalized_churn": 0.5,
+        "mean_normalized_churn": 0.3333333333333333
+      },
+      "boundary_extensions": {
+        "count": 0,
+        "cases": []
+      },
+      "revision_horizon": {
+        "mean": 5.641025641025641,
+        "median": 5.0,
+        "maximum": 12.0,
+        "boundary_count": 78
+      },
+      "source_file": "streamner-phase4-raw-traces-w2.json",
+      "run_id": "fixture-raw-ec17f76bc8a841ff986127edb06e59d5",
+      "words_per_chunk": 2
+    },
+    {
+      "example_id": "phone_number",
+      "raw_revisions": {
+        "span_update_count": 243,
+        "rescore_update_count": 129,
+        "rescore_update_rate": 0.5308641975308642,
+        "observed_boundary_count": 114,
+        "rescored_boundary_count": 78,
+        "rescored_boundary_rate": 0.6842105263157895,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 129,
+          "mean": 0.0073232113767375834,
+          "median": 3.499408543775003e-23,
+          "maximum": 0.9151899242291927
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 4,
+        "total_symmetric_difference": 3,
+        "mean_symmetric_difference": 0.75,
+        "micro_normalized_churn": 0.75,
+        "mean_normalized_churn": 0.5
+      },
+      "boundary_extensions": {
+        "count": 1,
+        "cases": [
+          {
+            "example_id": "phone_number",
+            "from_step": 3,
+            "to_step": 4,
+            "start_char": 32,
+            "from_end_char": 34,
+            "to_end_char": 49,
+            "label": "phone number",
+            "from_text": "+1",
+            "to_text": "+1 (202) 555-0147"
+          }
+        ]
+      },
+      "revision_horizon": {
+        "mean": 6.551282051282051,
+        "median": 6.0,
+        "maximum": 12.0,
+        "boundary_count": 78
+      },
+      "source_file": "streamner-phase4-raw-traces-w2.json",
+      "run_id": "fixture-raw-ec17f76bc8a841ff986127edb06e59d5",
+      "words_per_chunk": 2
+    },
+    {
+      "example_id": "street_address",
+      "raw_revisions": {
+        "span_update_count": 258,
+        "rescore_update_count": 156,
+        "rescore_update_rate": 0.6046511627906976,
+        "observed_boundary_count": 102,
+        "rescored_boundary_count": 78,
+        "rescored_boundary_rate": 0.7647058823529411,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 156,
+          "mean": 0.010315257366402023,
+          "median": 1.2997693099174634e-13,
+          "maximum": 0.49479614509161096
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 5,
+        "total_symmetric_difference": 4,
+        "mean_symmetric_difference": 0.8,
+        "micro_normalized_churn": 0.6666666666666666,
+        "mean_normalized_churn": 0.4
+      },
+      "boundary_extensions": {
+        "count": 1,
+        "cases": [
+          {
+            "example_id": "street_address",
+            "from_step": 4,
+            "to_step": 5,
+            "start_char": 26,
+            "from_end_char": 44,
+            "to_end_char": 54,
+            "label": "street address",
+            "from_text": "404 Imaginary Lane",
+            "to_text": "404 Imaginary Lane, Faketown"
+          }
+        ]
+      },
+      "revision_horizon": {
+        "mean": 5.641025641025641,
+        "median": 5.0,
+        "maximum": 12.0,
+        "boundary_count": 78
+      },
+      "source_file": "streamner-phase4-raw-traces-w2.json",
+      "run_id": "fixture-raw-ec17f76bc8a841ff986127edb06e59d5",
+      "words_per_chunk": 2
+    },
+    {
+      "example_id": "credit_card_like",
+      "raw_revisions": {
+        "span_update_count": 314,
+        "rescore_update_count": 200,
+        "rescore_update_rate": 0.6369426751592356,
+        "observed_boundary_count": 114,
+        "rescored_boundary_count": 78,
+        "rescored_boundary_rate": 0.6842105263157895,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 200,
+          "mean": 0.0013555344513353205,
+          "median": 2.6505889574139083e-13,
+          "maximum": 0.073844447851796
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 6,
+        "total_symmetric_difference": 3,
+        "mean_symmetric_difference": 0.5,
+        "micro_normalized_churn": 0.5,
+        "mean_normalized_churn": 0.3333333333333333
+      },
+      "boundary_extensions": {
+        "count": 1,
+        "cases": [
+          {
+            "example_id": "credit_card_like",
+            "from_step": 3,
+            "to_step": 5,
+            "start_char": 26,
+            "from_end_char": 30,
+            "to_end_char": 45,
+            "label": "credit card number",
+            "from_text": "1234",
+            "to_text": "1234 5678 9012 3456"
+          }
+        ]
+      },
+      "revision_horizon": {
+        "mean": 6.551282051282051,
+        "median": 6.0,
+        "maximum": 12.0,
+        "boundary_count": 78
+      },
+      "source_file": "streamner-phase4-raw-traces-w2.json",
+      "run_id": "fixture-raw-ec17f76bc8a841ff986127edb06e59d5",
+      "words_per_chunk": 2
+    },
+    {
+      "example_id": "passport_like",
+      "raw_revisions": {
+        "span_update_count": 125,
+        "rescore_update_count": 70,
+        "rescore_update_rate": 0.56,
+        "observed_boundary_count": 55,
+        "rescored_boundary_count": 36,
+        "rescored_boundary_rate": 0.6545454545454545,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 70,
+          "mean": 0.0010325935232089658,
+          "median": 4.303777509273529e-05,
+          "maximum": 0.03012390531860909
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 4,
+        "total_symmetric_difference": 1,
+        "mean_symmetric_difference": 0.25,
+        "micro_normalized_churn": 0.3333333333333333,
+        "mean_normalized_churn": 0.25
+      },
+      "boundary_extensions": {
+        "count": 0,
+        "cases": []
+      },
+      "revision_horizon": {
+        "mean": 4.333333333333333,
+        "median": 4.0,
+        "maximum": 9.0,
+        "boundary_count": 36
+      },
+      "source_file": "streamner-phase4-raw-traces-w2.json",
+      "run_id": "fixture-raw-ec17f76bc8a841ff986127edb06e59d5",
+      "words_per_chunk": 2
+    },
+    {
+      "example_id": "two_entities",
+      "raw_revisions": {
+        "span_update_count": 135,
+        "rescore_update_count": 33,
+        "rescore_update_rate": 0.24444444444444444,
+        "observed_boundary_count": 102,
+        "rescored_boundary_count": 21,
+        "rescored_boundary_rate": 0.20588235294117646,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 33,
+          "mean": 0.0004324736117270391,
+          "median": 1.046387114369956e-11,
+          "maximum": 0.008157184387705012
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 3,
+        "total_symmetric_difference": 1,
+        "mean_symmetric_difference": 0.3333333333333333,
+        "micro_normalized_churn": 0.25,
+        "mean_normalized_churn": 0.16666666666666666
+      },
+      "boundary_extensions": {
+        "count": 0,
+        "cases": []
+      },
+      "revision_horizon": {
+        "mean": 9.285714285714286,
+        "median": 9.0,
+        "maximum": 12.0,
+        "boundary_count": 21
+      },
+      "source_file": "streamner-phase4-raw-traces-w2.json",
+      "run_id": "fixture-raw-ec17f76bc8a841ff986127edb06e59d5",
+      "words_per_chunk": 2
+    },
+    {
+      "example_id": "negative_no_pii",
+      "raw_revisions": {
+        "span_update_count": 125,
+        "rescore_update_count": 70,
+        "rescore_update_rate": 0.56,
+        "observed_boundary_count": 55,
+        "rescored_boundary_count": 36,
+        "rescored_boundary_rate": 0.6545454545454545,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 70,
+          "mean": 0.006464446034212455,
+          "median": 9.671647948782095e-06,
+          "maximum": 0.24983385522399848
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 4,
+        "total_symmetric_difference": 0,
+        "mean_symmetric_difference": 0.0,
+        "micro_normalized_churn": 0.0,
+        "mean_normalized_churn": 0.0
+      },
+      "boundary_extensions": {
+        "count": 0,
+        "cases": []
+      },
+      "revision_horizon": {
+        "mean": 4.333333333333333,
+        "median": 4.0,
+        "maximum": 9.0,
+        "boundary_count": 36
+      },
+      "source_file": "streamner-phase4-raw-traces-w2.json",
+      "run_id": "fixture-raw-ec17f76bc8a841ff986127edb06e59d5",
+      "words_per_chunk": 2
+    },
+    {
+      "example_id": "entity_at_beginning",
+      "raw_revisions": {
+        "span_update_count": 301,
+        "rescore_update_count": 187,
+        "rescore_update_rate": 0.6212624584717608,
+        "observed_boundary_count": 114,
+        "rescored_boundary_count": 78,
+        "rescored_boundary_rate": 0.6842105263157895,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 187,
+          "mean": 0.0018201091062611992,
+          "median": 3.629766940530913e-67,
+          "maximum": 0.10869620754078879
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 4,
+        "total_symmetric_difference": 3,
+        "mean_symmetric_difference": 0.75,
+        "micro_normalized_churn": 0.75,
+        "mean_normalized_churn": 0.75
+      },
+      "boundary_extensions": {
+        "count": 0,
+        "cases": []
+      },
+      "revision_horizon": {
+        "mean": 6.551282051282051,
+        "median": 6.0,
+        "maximum": 12.0,
+        "boundary_count": 78
+      },
+      "source_file": "streamner-phase4-raw-traces-w2.json",
+      "run_id": "fixture-raw-ec17f76bc8a841ff986127edb06e59d5",
+      "words_per_chunk": 2
+    },
+    {
+      "example_id": "entity_at_end",
+      "raw_revisions": {
+        "span_update_count": 178,
+        "rescore_update_count": 100,
+        "rescore_update_rate": 0.5617977528089888,
+        "observed_boundary_count": 78,
+        "rescored_boundary_count": 66,
+        "rescored_boundary_rate": 0.8461538461538461,
+        "rescores_without_previous_probability": 0,
+        "probability_movement": {
+          "count": 100,
+          "mean": 0.004272377527234353,
+          "median": 8.191161697065872e-27,
+          "maximum": 0.42401658205518017
+        }
+      },
+      "decoded_snapshot_churn": {
+        "transition_count": 4,
+        "total_symmetric_difference": 1,
+        "mean_symmetric_difference": 0.25,
+        "micro_normalized_churn": 1.0,
+        "mean_normalized_churn": 0.25
+      },
+      "boundary_extensions": {
+        "count": 0,
+        "cases": []
+      },
+      "revision_horizon": {
+        "mean": 4.333333333333333,
+        "median": 4.0,
+        "maximum": 11.0,
+        "boundary_count": 66
+      },
+      "source_file": "streamner-phase4-raw-traces-w2.json",
+      "run_id": "fixture-raw-ec17f76bc8a841ff986127edb06e59d5",
+      "words_per_chunk": 2
+    }
+  ]
+}

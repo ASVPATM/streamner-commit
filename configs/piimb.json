@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "dataset": {
+    "id": "piimb/pii-masking-benchmark",
+    "subset": "sentences",
+    "split": "test",
+    "revision": "4a13e9ffe6fd0d275efbde8afd4d8d8f1ffc2133",
+    "license": "CC-BY-NC-4.0",
+    "source_path": "data/test_sentences.jsonl",
+    "source_size_bytes": 60412185,
+    "source_sha256": "5ff46f3a80316318794f94596fa374060d70f2f32a85909f958cbabc70bae41f",
+    "source_rows": 150022
+  },
+  "primary_tasks": [
+    "ai4privacy-en",
+    "gretel",
+    "nemotron-pii",
+    "privy"
+  ],
+  "partition": {
+    "algorithm": "sha256-task-parent-mod100-v1",
+    "salt": "streamner-commit-piimb-v1",
+    "development_percent": 20,
+    "test_percent": 80
+  },
+  "presets": {
+    "smoke": {
+      "development_sentences_per_task": 5,
+      "test_sentences_per_task": 20
+    },
+    "research_small": {
+      "development_sentences_per_task": 100,
+      "test_sentences_per_task": 300
+    },
+    "research_full": {
+      "development_sentences_per_task": 250,
+      "test_sentences_per_task": 1000
+    }
+  }
+}

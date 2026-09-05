@@ -1,0 +1,11 @@
+family,variant,completed,planned
+ema,main,54,54
+fixed-lag,main,108,108
+fixed-threshold,main,18,18
+oracle-stable,analysis-only,1,1
+rescore-patience,main,90,90
+snapshot-patience,main,90,90
+stability-gate,full,22,540
+stability-gate,minus_extension,0,180
+stability-gate,minus_instability,0,135
+stability-gate,minus_label_margin,0,180

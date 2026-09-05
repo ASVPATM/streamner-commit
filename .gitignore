@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.venv/
+.venv-reference/
+
+# macOS
+.DS_Store
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Models and downloaded weights
+models/*
+!models/.gitkeep
+artifacts/reference/*
+!artifacts/reference/.gitkeep
+
+# Data
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+# Exact PIIMB Hub source path; corpus contents must remain outside Git.
+data/test_sentences.jsonl
+
+# Large/raw experiment output
+results/raw/*
+!results/raw/.gitkeep
+results/traces/
+results/analysis/.sweep_checkpoints/
+# Local experiments, recovery scripts, learning notes, and logs stay private.
+# Already tracked smoke summaries remain tracked; reviewed public summaries use results/pilot/.
+results/analysis/
+.private/
+*.log
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.bundle
+
+# Hugging Face/cache artifacts
+.cache/
+huggingface/
+hf_cache/
+:memory:.ses
+
+# Coverage
+.coverage
+htmlcov/
+
+# Local environment/secrets
+.env
+.env.*
+!.env.example

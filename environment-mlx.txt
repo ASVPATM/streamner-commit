@@ -1,0 +1,9 @@
+macOS: 26.6.2
+Architecture: arm64
+Python: 3.12.14
+Git commit: unavailable (no commit)
+MLX: 0.32.2
+MLX-LM: 0.31.3
+Transformers: 5.12.1
+MLX_ENABLE_TF32: 0
+MLX compute: True

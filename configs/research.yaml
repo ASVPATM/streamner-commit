@@ -1,0 +1,93 @@
+schema_version: 1
+
+model:
+  id: knowledgator/gliner-stream-pii-v1.0
+  revision: e871777dc4b3b688747a0433fff8d94a36fcc7b0
+  weights_sha256: 7a966bf9dd66db4291880af752bad487f516cfdffe1c08613872b38391d1c484
+  checkpoint_config_sha256: 230c4e80da5df0f0fd884b10b9a010a095747cbf58bcd1c22d7333d27437043f
+  export_manifest_sha256: 84224d442aeefa38faf209b156006f0778d77ee296adf981180cef0a8426ac5a
+  tensor_manifest_sha256: b8299912b6fe2cf1f1eb2b277b9ab0ecbf03d1a779e50480f04a947fd3594d0f
+  model_config_sha256: b7fc0424f0d29cac91d5c2e499460ad19e5c2bd67bc7629dee3ced2f460effa7
+
+dataset:
+  id: piimb/pii-masking-benchmark
+  subset: sentences
+  revision: 4a13e9ffe6fd0d275efbde8afd4d8d8f1ffc2133
+  source_sha256: 5ff46f3a80316318794f94596fa374060d70f2f32a85909f958cbabc70bae41f
+  source_rows: 150022
+  tasks:
+    - ai4privacy-en
+    - gretel
+    - nemotron-pii
+    - privy
+  manifests:
+    research-small:
+      path: experiments/manifests/piimb_research_small.json
+      manifest_sha256: 3aebf0ba390a4b15ebd20bec91b5d5de2c9ac50f048ff3f5c3e9a7bc695606bf
+      file_sha256: 478ba9e2b10a505f111ac181f33c70e7c570776e23d8a47dc6f778ec169a1553
+    research-full:
+      path: experiments/manifests/piimb_research_full.json
+      manifest_sha256: 5d6222aff64ee866f17b6737b7bea145eee102ada4a635c263d8b63c437b8465
+      file_sha256: 916842aa702916d4aabff9b207992044bedbca884fca9f4151153b93a6c1e8e2
+    smoke:
+      path: experiments/manifests/piimb_smoke.json
+      manifest_sha256: d8477e6c76e2e828e9f7a3609c1aca1a91d50c127c2545663adce56a59d4c962
+      file_sha256: cab636c18cd298500cb3b5d77c1885a04ee16471de61fefdbb5001076e12359d
+  development_manifest: research-small
+  held_out_manifest: research-small
+
+conditions:
+  primary_chunk_words: 1
+  chunk_words: [1, 2, 4, 8]
+
+metrics:
+  strict_ner: exact_start_end_label_micro_and_unweighted_task_macro
+  masking: merged_adjacent_label_agnostic_character_coverage_per_task_micro
+  primary_quality: committed_precision
+  primary_delay: mean_commit_context_words_correct_commits
+  primary_error: wrong_plus_gold_premature_plus_missed_rate
+  gold_visibility: first_step_visible_char_count_gte_gold_end_char
+  model_detection_threshold: 0.5
+  zero_denominator: 0.0
+
+policy_grids:
+  fixed_threshold:
+    threshold: [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
+  fixed_lag:
+    threshold: [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
+    lag_words: [0, 1, 2, 4, 8, 12]
+  snapshot_patience:
+    threshold: [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
+    patience: [1, 2, 3, 4, 5]
+  rescore_patience:
+    threshold: [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
+    patience: [1, 2, 3, 4, 5]
+  ema:
+    threshold: [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
+    alpha: [0.20, 0.50, 0.80]
+  stability_gate:
+    tau: [0.30, 0.40, 0.50, 0.60, 0.70]
+    min_rescores: [1, 2, 3]
+    instability_horizon: [3]
+    epsilon: [0.01, 0.025, 0.05, 0.10]
+    min_label_margin: [0.00, 0.10, 0.20]
+    max_extension_advantage: [0.00, 0.05, 0.10]
+    ablations: [full, minus_instability, minus_label_margin, minus_extension]
+  oracle_stable:
+    threshold: [0.50]
+
+selection:
+  precision_tolerance: 0.000000000001
+  matched_quality_reference:
+    policy: fixed-threshold
+    threshold: 0.50
+  matched_latency_reference:
+    policy: fixed-threshold
+    threshold: 0.50
+
+bootstrap:
+  replicates: 2000
+  confidence: 0.95
+  seed: 20260901
+
+experiment_seed: 20260901

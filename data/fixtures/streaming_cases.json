@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "purpose": "Synthetic behavioral and debugging fixtures only; not a benchmark.",
+  "fictional": true,
+  "annotations_are_benchmark_gold": false,
+  "labels": [
+    "person",
+    "email address",
+    "phone number",
+    "street address",
+    "credit card number",
+    "passport number"
+  ],
+  "cases": [
+    {
+      "id": "multi_word_person",
+      "categories": ["multi_word_person"],
+      "fictional": true,
+      "text": "The visitor was Mira Solenne during the rehearsal.",
+      "debug_annotations": [
+        {
+          "start": 16,
+          "end": 28,
+          "label": "person",
+          "text": "Mira Solenne"
+        }
+      ]
+    },
+    {
+      "id": "email_address",
+      "categories": ["email_address"],
+      "fictional": true,
+      "text": "Send the rehearsal notes to nora.quill@example.test tomorrow.",
+      "debug_annotations": [
+        {
+          "start": 28,
+          "end": 51,
+          "label": "email address",
+          "text": "nora.quill@example.test"
+        }
+      ]
+    },
+    {
+      "id": "phone_number",
+      "categories": ["phone_number"],
+      "fictional": true,
+      "text": "For the fictional hotline, call +1 (202) 555-0147 after noon.",
+      "debug_annotations": [
+        {
+          "start": 32,
+          "end": 49,
+          "label": "phone number",
+          "text": "+1 (202) 555-0147"
+        }
+      ]
+    },
+    {
+      "id": "street_address",
+      "categories": ["street_address"],
+      "fictional": true,
+      "text": "Deliver the prop crate to 404 Imaginary Lane, Faketown, ZZ 00000.",
+      "debug_annotations": [
+        {
+          "start": 26,
+          "end": 64,
+          "label": "street address",
+          "text": "404 Imaginary Lane, Faketown, ZZ 00000"
+        }
+      ]
+    },
+    {
+      "id": "credit_card_like",
+      "categories": ["credit_card_like"],
+      "fictional": true,
+      "text": "The test payment token is 1234 5678 9012 3456 and must never be processed.",
+      "debug_annotations": [
+        {
+          "start": 26,
+          "end": 45,
+          "label": "credit card number",
+          "text": "1234 5678 9012 3456"
+        }
+      ]
+    },
+    {
+      "id": "passport_like",
+      "categories": ["passport_like"],
+      "fictional": true,
+      "text": "The mock passport identifier reads ZZ0000000 in the script.",
+      "debug_annotations": [
+        {
+          "start": 35,
+          "end": 44,
+          "label": "passport number",
+          "text": "ZZ0000000"
+        }
+      ]
+    },
+    {
+      "id": "two_entities",
+      "categories": ["two_entities"],
+      "fictional": true,
+      "text": "Mira Solenne can be reached at mira.solenne@example.test.",
+      "debug_annotations": [
+        {
+          "start": 0,
+          "end": 12,
+          "label": "person",
+          "text": "Mira Solenne"
+        },
+        {
+          "start": 31,
+          "end": 56,
+          "label": "email address",
+          "text": "mira.solenne@example.test"
+        }
+      ]
+    },
+    {
+      "id": "negative_no_pii",
+      "categories": ["negative_no_pii"],
+      "fictional": true,
+      "text": "The copper lantern flickered beside the empty stage window.",
+      "debug_annotations": []
+    },
+    {
+      "id": "entity_at_beginning",
+      "categories": ["entity_at_beginning"],
+      "fictional": true,
+      "text": "start@example.test is a reserved mailbox used in this fictional example.",
+      "debug_annotations": [
+        {
+          "start": 0,
+          "end": 18,
+          "label": "email address",
+          "text": "start@example.test"
+        }
+      ]
+    },
+    {
+      "id": "entity_at_end",
+      "categories": ["entity_at_end"],
+      "fictional": true,
+      "text": "The final fictional callback number is +1 (303) 555-0188",
+      "debug_annotations": [
+        {
+          "start": 39,
+          "end": 56,
+          "label": "phone number",
+          "text": "+1 (303) 555-0188"
+        }
+      ]
+    }
+  ]
+}

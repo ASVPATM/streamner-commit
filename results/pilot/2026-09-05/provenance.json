@@ -1,0 +1,33 @@
+{
+  "chunk_words": 1,
+  "development_configurations_completed": 383,
+  "development_configurations_planned": 1396,
+  "development_examples": 400,
+  "export": "Whitelisted aggregate columns only; metric values unchanged; no evaluation rerun.",
+  "files": {
+    "bootstrap.csv": {
+      "sha256": "4a411339890585ed39a3b9b8ff9f260301887015fa3eb90309a567afc8f3e406"
+    },
+    "coverage.csv": {
+      "sha256": "cb12017840e25ffd619861a581ce8e99a266f5ec83b9f7f21db809f3ec0e8fe4"
+    },
+    "frozen_dev_pilot.json": {
+      "sha256": "65e3a34d6706516ba3e9375fd27288dcf5dca95ddc1f9e8b4ce4660e63dabe2f"
+    },
+    "held_out_metrics.csv": {
+      "sha256": "363bb47dd753a0667dcc05aeb5078b40d4235bdf9972ecb4731d30399d816875"
+    },
+    "source_benchmark_manifest.json": {
+      "sha256": "0b486d6e7ccdccc73e7fc55a49f2ae166f05ffe3495d99d31caf227b187e6774"
+    }
+  },
+  "final_reproducibility_gate": false,
+  "held_out_evaluated": true,
+  "held_out_examples": 1200,
+  "historical_provenance": "Original producer commit IDs are retained, not relabeled as public release commits. Original history is preserved privately; the same-commit final gate was not passed.",
+  "mode": "public-aggregate-export-of-preliminary-pilot",
+  "policy_mode_evaluations": 14,
+  "source_held_out_metrics_sha256": "3f2c701b6afd0069840b4f0260b06af29831c38558da80232f1f40d9b1f5066b",
+  "source_report_manifest_sha256": "fdc6764c2b9c34b5c4bb23a445dd398714009a910e6357caa3b406d80dfb74ae",
+  "status": "complete"
+}
