@@ -6,7 +6,7 @@ The goal is to avoid committing too early, without waiting longer than necessary
 It compares simple rules, including EMA score smoothing, with a multi-check policy called
 StabilityGate. Model inference uses MLX on Apple Silicon; saved-score replay can run on Linux.
 
-## Latest test
+## Latest test results
 
 A partial run evaluated 14 policy/mode choices on 1,200 held-out examples. In the
 development-selected matched-quality comparison, EMA scored **0.705 F1** and
