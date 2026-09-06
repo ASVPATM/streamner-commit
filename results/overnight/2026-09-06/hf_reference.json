@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "source_url": "https://huggingface.co/knowledgator/gliner-stream-pii-v1.0#evaluation",
+  "model_card_revision": "e871777dc4b3b688747a0433fff8d94a36fcc7b0",
+  "accessed_date": "2026-09-06",
+  "reported_evaluation_date": "2026-07-24",
+  "benchmark_version": "PIIMB 0.3.0",
+  "dataset_revision": "4a13e9ffe6fd0d275efbde8afd4d8d8f1ffc2133",
+  "dataset_subset": "sentences",
+  "threshold": 0.5,
+  "dtype": "bfloat16",
+  "inference_strategy": "not specified in model-card evaluation section",
+  "rounding": "Transcribed published two-decimal percentages; fractions below. Do not recompute the reported average from rounded task values.",
+  "comparison_status": "contextual reference only; not a matched-sample reproduction",
+  "metrics": [
+    {
+      "task": "english_average",
+      "aggregation": "unweighted_task_macro",
+      "masking_precision": 0.8736,
+      "masking_recall": 0.9155,
+      "masking_f1": 0.8918,
+      "masking_f2": 0.9053,
+      "fpr": 0.0301,
+      "strict_f1": null
+    },
+    {
+      "task": "ai4privacy-en",
+      "aggregation": "task_micro",
+      "masking_precision": 0.9469,
+      "masking_recall": 0.9516,
+      "masking_f1": 0.9492,
+      "masking_f2": 0.9506,
+      "fpr": 0.0152,
+      "strict_f1": 0.6799
+    },
+    {
+      "task": "gretel",
+      "aggregation": "task_micro",
+      "masking_precision": 0.8695,
+      "masking_recall": 0.9558,
+      "masking_f1": 0.9106000000000001,
+      "masking_f2": 0.9372,
+      "fpr": 0.052000000000000005,
+      "strict_f1": 0.6738
+    },
+    {
+      "task": "nemotron-pii",
+      "aggregation": "task_micro",
+      "masking_precision": 0.7275,
+      "masking_recall": 0.8806999999999999,
+      "masking_f1": 0.7968000000000001,
+      "masking_f2": 0.8451000000000001,
+      "fpr": 0.049800000000000004,
+      "strict_f1": 0.6893
+    },
+    {
+      "task": "privy",
+      "aggregation": "task_micro",
+      "masking_precision": 0.9506999999999999,
+      "masking_recall": 0.8739,
+      "masking_f1": 0.9107,
+      "masking_f2": 0.8883,
+      "fpr": 0.0033,
+      "strict_f1": 0.8168000000000001
+    }
+  ]
+}
