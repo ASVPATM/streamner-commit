@@ -34,6 +34,38 @@ releases at end of message and is not interchangeable with live output.
 Final incremental snapshots at threshold 0.5 are also retained in
 [metrics.json](metrics.json); those can revise earlier predictions.
 
+## Why F2 is lower and the thresholds differ
+
+F1 balances precision and recall; F2 places more weight on recall. That is a
+stronger penalty for missed PII, not a bonus added to F1. The buffer's after-close
+recall is below precision in all four datasets, so each task's F2 is below its F1.
+Their English averages are consequently **78.11% F2 versus 83.43% F1**. These
+averages come from the four task scores, not from inserting the average precision
+and recall into an F-score formula.
+
+The upstream **0.5 is a configurable detection cutoff**, not a requirement to
+lock a prediction forever. GLiNER also documents 0.5 as its
+[default entity threshold](https://urchade.github.io/GLiNER/serving.html#full-option-reference).
+The [model card](https://huggingface.co/knowledgator/gliner-stream-pii-v1.0#evaluation)
+reports that cutoff but does not explain its selection or establish it as optimal.
+Its incremental API returns a current snapshot, which differs from our irreversible
+commitment output. A score of 0.95 is not evidence of 95% empirical accuracy.
+
+Our 0.95 cutoff is a conservative reference retained from earlier commitment
+tests, where exact-entity precision was a primary concern. Keeping it fixed isolates
+changes to buffering. The upstream masking benchmark instead prioritizes recall
+through F2. Admitting lower-scoring candidates may recover missed PII but can also
+lock wrong boundaries and block later correct entities; simply copying 0.5 is not
+a demonstrated fix. Threshold choice and when to commit are separate decisions.
+
+A longer replay does not improve the frozen detector or make different protocols
+equivalent. A direct method comparison needs the same frozen examples, model,
+labels, scoring rules and output timing, with thresholds either held equal to
+isolate buffering or selected under the same development-only procedure. A smaller
+paired sample can support that comparison with uncertainty; reproducing the model
+card's exact numbers additionally requires its evaluation sample and inference
+recipe. These reused test results are not a fresh confirmation sample.
+
 ## Closest model-level reference
 
 Saved cold full-sentence output, not the commitment policy. Values in percent;

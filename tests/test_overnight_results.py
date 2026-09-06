@@ -98,6 +98,37 @@ def test_readme_matches_masking_not_strict_columns_and_preserves_caveats():
     assert hf["dataset_revision"] == p["dataset"]["revision"]
 
 
+def test_readme_separates_selected_baseline_live_outputs_and_model_reference():
+    readme = (ROOT / "README.md").read_text()
+    headings = (
+        "### Main result — selected streaming baseline",
+        "### Other streaming results",
+        "### GLiNER comparison — closest model-level reference",
+    )
+    assert readme.index("## Latest test results") < readme.index(headings[0])
+    main, remaining = readme.split(headings[0], 1)[1].split(headings[1], 1)
+    live, reference = remaining.split(headings[2], 1)
+    sections = {
+        ("buffer_2", "explicit_close"): main,
+        ("buffer_2", "online"): live,
+        ("ema_published", "online"): live,
+        ("cold_full", "full_text"): reference,
+    }
+    for (control, phase), section in sections.items():
+        row = next(
+            r
+            for r in data()["task_averages"]
+            if (r["chunk_words"], r["control"], r["phase"]) == (1, control, phase)
+        )
+        rendered = " | ".join(f"{row[k] * 100:.2f}%" for k in (*RATE_KEYS[:5], "strict_f1"))
+        assert rendered in section
+    assert len([line for line in main.splitlines() if line.startswith("| ")]) == 3
+    assert "Buffer after close" in main and "not the highest masking F2" in main
+    assert "GLiNER reported" in reference and "GLiNER reported" not in main + live
+    assert "Why the buffer's F2 is lower" in readme
+    assert "not a guarantee of 95% accuracy" in readme
+
+
 def test_public_export_has_no_case_identifiers_or_local_paths():
     forbidden_keys = {
         "example",
