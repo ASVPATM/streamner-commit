@@ -1,44 +1,28 @@
 # StreamNER-Commit
 
-A work-in-progress tool for deciding when to lock an entity prediction as text arrives.
-The goal is to avoid committing too early, without waiting longer than necessary.
-
-It compares simple rules, including EMA score smoothing, with a multi-check policy called
-StabilityGate. Model inference uses MLX on Apple Silicon; saved-score replay can run on Linux.
+A work-in-progress tool for deciding when to lock entity predictions as text arrives.
+The goal is fewer premature commitments without unnecessary waiting. Model inference
+uses MLX on Apple Silicon; saved-score replay also runs on Linux.
 
 ## Latest test results
 
-**2026-09-05 pilot:** 1,200 held-out examples, four datasets, one word per update.
-Settings were selected on development data; the mode names do not imply equal test quality or delay.
+**2026-09-06: small development tests**, four datasets, one word per update.
+The two-update buffer was tested on 80 examples, then frozen and checked on
+40 different diagnostic parents. These are not new held-out benchmark results.
 
-### Matched-quality selection
+| Sample | Policy / output | Precision | Recall | F1 |
+| --- | --- | ---: | ---: | ---: |
+| 80 examples | Threshold 0.95 | 82.22% | 64.91% | 72.55% |
+| 80 examples | Buffer, online only | 90.54% | 58.77% | 71.28% |
+| 80 examples | Buffer, after close | 89.89% | 70.18% | 78.82% |
+| 40 new diagnostic parents | Threshold 0.95 | 77.46% | 71.43% | 74.32% |
+| 40 new diagnostic parents | Buffer, online only | 80.33% | 63.64% | 71.01% |
+| 40 new diagnostic parents | Buffer, after close | 82.86% | 75.32% | 78.91% |
 
-| Policy | Precision ↑ | Recall ↑ | F1 ↑ | Delay (words) ↓ |
-| --- | ---: | ---: | ---: | ---: |
-| Fixed threshold | 0.518 | 0.670 | 0.584 | 6.27 |
-| Fixed lag | 0.774 | 0.645 | 0.704 | 6.53 |
-| Snapshot patience | 0.774 | 0.645 | 0.704 | 6.53 |
-| Rescore patience | 0.498 | 0.377 | 0.429 | 2.32 |
-| EMA | 0.779 | 0.645 | 0.705 | 6.54 |
-| StabilityGate | 0.557 | 0.372 | 0.446 | 2.38 |
-| Oracle (future-aware) | 0.604 | 0.729 | 0.661 | 5.92 |
+Close means an explicit end-of-message signal. Online recall fell; close recovered
+pending entities. All net strict gains in the 40-example check came from AI4Privacy.
+The samples are small and differ from the older 1,200-example pilot.
 
-### Matched-latency selection
-
-| Policy | Precision ↑ | Recall ↑ | F1 ↑ | Delay (words) ↓ |
-| --- | ---: | ---: | ---: | ---: |
-| Fixed threshold | 0.518 | 0.670 | 0.584 | 6.27 |
-| Fixed lag | 0.774 | 0.645 | 0.704 | 6.53 |
-| Snapshot patience | 0.774 | 0.645 | 0.704 | 6.53 |
-| Rescore patience | 0.774 | 0.645 | 0.704 | 6.53 |
-| EMA | 0.780 | 0.640 | 0.703 | 6.56 |
-| StabilityGate | 0.726 | 0.353 | 0.475 | 2.57 |
-| Oracle (future-aware) | 0.604 | 0.729 | 0.661 | 5.92 |
-
-Delay averages **correct commitments only**; lower delay can accompany missed entities.
-The oracle uses future information and is not deployable. Only **22/540** full StabilityGate
-settings were searched, with no ablations—these are partial results.
-
-[Results](results/pilot/2026-09-05/README.md) ·
-[Technical details](docs/TECHNICAL_DESCRIPTION.md) ·
-[Data and dependencies](docs/THIRD_PARTY.md)
+[Latest numbers and limits](results/development/2026-09-06/README.md) ·
+[Older test pilot](results/pilot/2026-09-05/README.md) ·
+[Technical details](docs/TECHNICAL_DESCRIPTION.md) · [Data](docs/THIRD_PARTY.md)
