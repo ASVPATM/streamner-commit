@@ -4,6 +4,9 @@ A work-in-progress tool for deciding when to lock entity predictions as text arr
 The goal is fewer premature commitments without unnecessary waiting. Model inference
 uses MLX on Apple Silicon; saved-score replay also runs on Linux.
 
+Testing is paused after v10. The 0.95 buffer remains the reference and 0.90 the
+leading candidate. [How I tested v1–v10 and why I paused](docs/TESTING_HISTORY.md).
+
 ## Latest test results
 
 **V10 · 2026-09-06:** 96 reused development sentences, 24 per dataset; two fixed
@@ -49,5 +52,39 @@ Same model/dataset revisions, different samples and inference conditions:
 choices, not guarantees of accuracy. [Testing and threshold explanation](results/overnight/2026-09-06/README.md#why-f2-is-lower-and-the-thresholds-differ).
 
 [Overnight v6: 1,200 sentences, four chunks](results/overnight/2026-09-06/README.md) ·
-[Earlier small tests](results/development/2026-09-06/README.md) ·
-[Technical details](docs/TECHNICAL_DESCRIPTION.md) · [Data](docs/THIRD_PARTY.md)
+[Earlier small tests](results/development/2026-09-06/README.md)
+
+## Technical details
+
+`Text chunks → GLiNER / MLX → saved scores → commitment policy → evaluation`
+
+- **Detector:** the upstream GLiNER StreamingSpan PII checkpoint, with a Qwen3-0.6B
+  backbone. Its weights stayed unchanged throughout these tests.
+- **Buffer:** when an eligible prediction reaches the visible text edge, keep it
+  provisional for two arriving updates. Then resolve candidates using their current
+  scores. Extensions do not restart the wait; committed predictions cannot change.
+  Two updates are not necessarily two model words.
+- **Earlier policies:** EMA smooths fresh confidence scores. StabilityGate adds
+  checks for repeated scores, stability and competing predictions. Neither is the
+  current reference. V8/v9 also tested small learned policy heads, not detector
+  fine-tuning.
+- **Testing:** replay saved scores without rerunning GLiNER for each setting.
+  Later runs load one example at a time, report
+  progress and save checkpoints. Replay time is not live inference latency.
+
+This evaluates prediction commitment, not a complete redaction service. Text already
+sent downstream cannot be made private by a later detection. Raw text, traces and
+private study bundles are not published; result folders contain reviewed aggregates.
+
+[Setup and implementation notes](docs/TECHNICAL_DESCRIPTION.md) ·
+[Testing history and limits](docs/TESTING_HISTORY.md)
+
+## Credits
+
+Built by [ASVPATM](https://github.com/ASVPATM), with OpenAI Codex assistance for code,
+tests and documentation. Model work comes from the [GLiNER authors](https://github.com/urchade/GLiNER)
+and [Knowledgator / Wordcab](https://huggingface.co/knowledgator/gliner-stream-pii-v1.0).
+Apple's [MLX](https://github.com/ml-explore/mlx) provides the inference runtime.
+Evaluation uses [PIIMB](https://huggingface.co/datasets/piimb/pii-masking-benchmark),
+including work from AI4Privacy, Gretel, NVIDIA and Privy contributors.
+[Dependency, data and reference credits](docs/THIRD_PARTY.md).
