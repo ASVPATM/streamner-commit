@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "published_date": "2026-09-06",
+  "study": "replication-v10",
+  "status": "complete",
+  "scope": "Frozen two-control replication on reused development data; not a fresh held-out or full model-card benchmark.",
+  "sample": {
+    "examples": 96,
+    "parents": 96,
+    "gold_entities": 118,
+    "per_task": {
+      "ai4privacy-en": 24,
+      "gretel": 24,
+      "nemotron-pii": 24,
+      "privy": 24
+    },
+    "blocks": {
+      "A": {
+        "parents": 48,
+        "per_task": 12
+      },
+      "B": {
+        "parents": 48,
+        "per_task": 12
+      }
+    },
+    "v9_parents_excluded": 96,
+    "reserved_parents_excluded": 64,
+    "one_sentence_per_parent": true,
+    "prior_v8_development_use": true
+  },
+  "planned_policy_pairs": 192,
+  "complete_policy_pairs": 192,
+  "chunk_words": 1,
+  "local_partition": "dev",
+  "preset": "research-small",
+  "seed": 20260912,
+  "model": {
+    "id": "knowledgator/gliner-stream-pii-v1.0",
+    "revision": "e871777dc4b3b688747a0433fff8d94a36fcc7b0",
+    "trace_backend": "mlx-streaming",
+    "trace_dtype": "float32",
+    "public_snapshot_threshold": 0.5
+  },
+  "dataset": {
+    "id": "piimb/pii-masking-benchmark",
+    "revision": "4a13e9ffe6fd0d275efbde8afd4d8d8f1ffc2133",
+    "subset": "sentences"
+  },
+  "controls": {
+    "buffer_090": {
+      "analysis_only": false,
+      "family": "provisional-buffer",
+      "parameters": {
+        "horizon_updates": 2,
+        "threshold": 0.9
+      },
+      "policy_id": "provisional-buffer:admission-v9:a745149c8de71cdc",
+      "variant": "admission-v9"
+    },
+    "buffer_2": {
+      "analysis_only": false,
+      "family": "provisional-buffer",
+      "parameters": {
+        "horizon_updates": 2,
+        "threshold": 0.95
+      },
+      "policy_id": "provisional-buffer:buffer-v4:49b945880bb90b3c",
+      "variant": "buffer-v4"
+    }
+  },
+  "design": {
+    "context_control": "retained for future separate evaluation, not activated",
+    "guards": [
+      "masking precision",
+      "FPR",
+      "strict NER",
+      "joint-correct word delay",
+      "all-gold timely recall"
+    ],
+    "largest_gain_parent_sensitivity": true,
+    "no_tuning_between_blocks": true,
+    "one_example_per_parent": true,
+    "paired_characters": true,
+    "primary": "live four-task macro masking F2 difference, separately in A and B",
+    "width_diagnosis": "passive only; no new candidates, merging or changed limits"
+  },
+  "phases": {
+    "online": "Irreversible commitments made while updates arrive, without explicit close.",
+    "explicit_close": "Includes pending entities released at the explicit end-of-message signal; not live output."
+  },
+  "source": {
+    "content_sha256": "e15762e56dff9bb4c8b5c7ecb10c717c33819d102aa56f89f0773fb01d0542f9",
+    "run_id": "trace-4ef9b8730d27c2f04409ad8a",
+    "sha256": "4ef9b8730d27c2f04409ad8ad458e9d28a6f97c0a416697bda0ee7a3ada7ca7e"
+  },
+  "research_config_sha256": "57be61daec85c2f1ad9278782d2879d1ab92e7ef693ac1f44b3d33485350b14c",
+  "return_bundle_sha256": "0804276c94f6bc8939e7a2228a43023163f2dc0fe5ed4b1d513bdcc98eb5d7ba",
+  "protocol_sha256": "4fb89fe4d865b95594deda928718745c5e98b59bd72ed869f5e6cba72fcf0f90",
+  "consumer_code_sha256": "de248ea9394a4a99a4793a68f2fb0ff9b3d9fd498e265bb81c98b1ae2b13c944",
+  "input_bundle_sha256": "3fdfdc271d15f862ee516960e89ca191ca6c31a6a8f65ce2b22ab2ce8bb6d12b",
+  "predecessors": {
+    "v8": {
+      "return_bundle_sha256": "b94bb16e83a4fe7361f29bae1297105b308152e259949fa22b9a2617fbbd4db8",
+      "protocol_sha256": "2b161b4b8954b8afbfac0e10928345dd6702c82afbb8bbb84c6f1538e735c1f7"
+    },
+    "v9": {
+      "return_bundle_sha256": "a5130274eb1b2cccd4911e15be124d46e1b69fd96a2809f7a1d07565e0772a66",
+      "protocol_sha256": "4e4285d524d6cc5a022221a5570c4c2053b73a3b32d0b7b4623091c512284867"
+    }
+  },
+  "replay_versions": {
+    "numpy": "2.5.2",
+    "pyarrow": "25.0.1",
+    "python": "3.12.13",
+    "pyyaml": "6.0.3"
+  },
+  "compute": {
+    "worker_elapsed_seconds": 355.2860593910009,
+    "peak_rss_mib": 1396.23828125,
+    "cpu_duty_fraction": 0.5,
+    "workers": 1
+  },
+  "verification": {
+    "source_verified": true,
+    "policy_rows": 192,
+    "source_verified_commit_records": 197,
+    "baseline_parity": 96,
+    "metric_rows": 72,
+    "comparisons": 30,
+    "structural_records": 118
+  },
+  "baseline_promoted": false,
+  "reserve_evaluated": false,
+  "model_weights_updated": false,
+  "review_gate": "CLOSED",
+  "code_publication_note": "This publication contains reviewed aggregates only. The consumer hash identifies the retained portable experiment snapshot, not the public Git source tree. The private return, membership and source snapshot are retained for audit; this is not a self-contained public reproduction package."
+}
