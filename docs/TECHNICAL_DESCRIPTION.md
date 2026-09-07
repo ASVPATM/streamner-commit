@@ -99,4 +99,4 @@ The model, dataset, and metric settings are in `configs/`; code is under
 are bundled. Historical pilot producer IDs are retained in the result metadata; they
 are not commits in the clean public history.
 
-[Credits](../README.md#credits) · [Data, dependencies and other references](THIRD_PARTY.md)
+[Data, dependencies and other references](THIRD_PARTY.md)

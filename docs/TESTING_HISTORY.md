@@ -82,4 +82,4 @@ retained private reviews; their detailed returns are not public. The frozen stud
 code, raw traces and membership needed to reproduce every run are not all shipped
 in this repository. A public clone alone does not reproduce v1–v10.
 
-[Credits and acknowledgements](../README.md#credits) · [Data and dependency terms](THIRD_PARTY.md)
+[Data and dependency terms](THIRD_PARTY.md)

@@ -79,12 +79,8 @@ private study bundles are not published; result folders contain reviewed aggrega
 [Setup and implementation notes](docs/TECHNICAL_DESCRIPTION.md) ·
 [Testing history and limits](docs/TESTING_HISTORY.md)
 
-## Credits
-
-Built by [ASVPATM](https://github.com/ASVPATM), with OpenAI Codex assistance for code,
-tests and documentation. Model work comes from the [GLiNER authors](https://github.com/urchade/GLiNER)
-and [Knowledgator / Wordcab](https://huggingface.co/knowledgator/gliner-stream-pii-v1.0).
-Apple's [MLX](https://github.com/ml-explore/mlx) provides the inference runtime.
-Evaluation uses [PIIMB](https://huggingface.co/datasets/piimb/pii-masking-benchmark),
-including work from AI4Privacy, Gretel, NVIDIA and Privy contributors.
-[Dependency, data and reference credits](docs/THIRD_PARTY.md).
+[GLiNER](https://github.com/urchade/GLiNER) ·
+[Knowledgator / Wordcab](https://huggingface.co/knowledgator/gliner-stream-pii-v1.0) ·
+[MLX](https://github.com/ml-explore/mlx) ·
+[PIIMB](https://huggingface.co/datasets/piimb/pii-masking-benchmark) ·
+[Data and dependencies](docs/THIRD_PARTY.md)
